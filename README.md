@@ -7,27 +7,27 @@ test
 
 # Okta Golang management SDK
 
-* [Release status](#release-status)
-* [Need help?](#need-help)
-* [Getting started](#getting-started)
-* [Usage guide](#usage-guide)
-* [Configuration reference](#configuration-reference)
-* [Upgrading Guide](#upgrading-to-20x)
-* [Building the SDK](#building-the-sdk)
-* [Contributing](#contributing)
+- [Release status](#release-status)
+- [Need help?](#need-help)
+- [Getting started](#getting-started)
+- [Usage guide](#usage-guide)
+- [Configuration reference](#configuration-reference)
+- [Upgrading Guide](#upgrading-to-20x)
+- [Building the SDK](#building-the-sdk)
+- [Contributing](#contributing)
 
 This repository contains the Okta management SDK for Golang. This SDK can be
 used in your server-side code to interact with the Okta management API and
 
-* Create and update users with the [Users API](https://developer.okta.com/docs/api/resources/users)
-* Add security factors to users with the [Factors API](https://developer.okta.com/docs/api/resources/factors)
-* Manage groups with the [Groups API](https://developer.okta.com/docs/api/resources/groups)
-* Manage applications with the [Apps API](https://developer.okta.com/docs/api/resources/apps)
-* Much more!
+- Create and update users with the [Users API](https://developer.okta.com/docs/api/resources/users)
+- Add security factors to users with the [Factors API](https://developer.okta.com/docs/api/resources/factors)
+- Manage groups with the [Groups API](https://developer.okta.com/docs/api/resources/groups)
+- Manage applications with the [Apps API](https://developer.okta.com/docs/api/resources/apps)
+- Much more!
 
 We also publish these libraries for Golang:
 
-* [JWT Verifier](https://github.com/okta/okta-jwt-verifier-golang)
+- [JWT Verifier](https://github.com/okta/okta-jwt-verifier-golang)
 
 You can learn more on the [Okta + Golang][lang-landing] page in our documentation.
 
@@ -36,11 +36,11 @@ You can learn more on the [Okta + Golang][lang-landing] page in our documentatio
 This library uses semantic versioning and follows Okta's [library version
 policy](https://developer.okta.com/code/library-versions/).
 
-| Version | Status                             |
-| ------- | ---------------------------------- |
-| 0.x     |  :warning: Beta Release (Retired)  |
-| 1.x     |  :warning: Retiring on 2021-03-04  |
-| 2.x     |  :heavy_check_mark: Release        |
+| Version | Status                           |
+| ------- | -------------------------------- |
+| 0.x     | :warning: Beta Release (Retired) |
+| 1.x     | :warning: Retiring on 2021-03-04 |
+| 2.x     | :heavy_check_mark: Release       |
 
 The latest release can always be found on the [releases page][github-releases].
 
@@ -48,8 +48,8 @@ The latest release can always be found on the [releases page][github-releases].
 
 If you run into problems using the SDK, you can
 
-* Ask questions on the [Okta Developer Forums][devforum]
-* Post [issues][github-issues] here on GitHub (for code errors)
+- Ask questions on the [Okta Developer Forums][devforum]
+- Post [issues][github-issues] here on GitHub (for code errors)
 
 ## Getting started
 
@@ -60,17 +60,18 @@ SDK.
 ### Install current release
 
 To install the Okta Golang SDK in your project:
-  - Create a module file by running `go mod init`
-    - You can skip this step if you already use `go mod`
-  - Run `go get github.com/okta/okta-sdk-golang/v2@latest`. This will add
-    the SDK to your `go.mod` file.
-  - Import the package in your project with `import
-   "github.com/okta/okta-sdk-golang/v2/okta"`
+
+- Create a module file by running `go mod init`
+  - You can skip this step if you already use `go mod`
+- Run `go get github.com/okta/okta-sdk-golang/v2@latest`. This will add
+  the SDK to your `go.mod` file.
+- Import the package in your project with `import
+"github.com/okta/okta-sdk-golang/v2/okta"`
 
 ### Installing legacy version
 
 Although we do not suggest using the 1.x version of the SDK, you can still use
-it. Version 1.x is *retiring* and will not be supported past March 4, 2021. It
+it. Version 1.x is _retiring_ and will not be supported past March 4, 2021. It
 will likely remain working after that date, but you should make a plan to
 migrate to the new 2.x version.
 
@@ -80,9 +81,9 @@ with `import "github.com/okta/okta-sdk-golang"`
 
 ### You'll also need
 
-* An Okta account, called an _organization_ (sign up for a free [developer
+- An Okta account, called an _organization_ (sign up for a free [developer
   organization](https://developer.okta.com/signup) if you need one)
-* An [API
+- An [API
   token](https://developer.okta.com/docs/api/getting_started/getting_a_token)
 
 ### Initialize a client
@@ -115,7 +116,7 @@ Hard-coding the Okta domain and API token works for quick tests, but for real
 projects you should use a more secure way of storing these values (such as
 environment variables). This library supports a few different configuration
 sources, covered in the [configuration reference](#configuration-reference)
-  section.
+section.
 
 ## Usage guide
 
@@ -132,8 +133,8 @@ API](https://developer.okta.com/docs/api/resources/users) are organized under
 
 In the default configuration the client utilizes a memory cache that has a time
 to live on its cached values. See [Configuration Setter
-Object](#configuration-setter-object)  `WithCache(cache bool)`,
-`WithCacheTtl(i int32)`, and `WithCacheTti(i int32)`.  This helps to
+Object](#configuration-setter-object) `WithCache(cache bool)`,
+`WithCacheTtl(i int32)`, and `WithCacheTti(i int32)`. This helps to
 keep HTTP requests to the Okta API at a minimum. In the case where the client
 needs to be certain it is accessing recent data; for instance, list items,
 delete an item, then list items again; be sure to make use of the refresh next
@@ -771,9 +772,9 @@ This library looks for configuration in the following sources:
 
 0. An `okta.yaml` file in a `.okta` folder in the current user's home directory
    (`~/.okta/okta.yaml` or `%userprofile\.okta\okta.yaml`)
-0. A `.okta.yaml` file in the application or project's root directory
-0. Environment variables
-0. Configuration explicitly passed to the constructor (see the example in
+1. A `.okta.yaml` file in the application or project's root directory
+2. Environment variables
+3. Configuration explicitly passed to the constructor (see the example in
    [Getting started](#getting-started))
 
 Higher numbers win. In other words, configuration passed via the constructor
@@ -795,7 +796,7 @@ okta:
       host: null
       username: null
       password: null
-    token: {apiToken}
+    token: { apiToken }
 ```
 
 When you use OAuth 2.0 the full YAML configuration looks like:
@@ -816,11 +817,11 @@ okta:
       - scope.1
       - scope.2
     privateKey: |
-        -----BEGIN RSA PRIVATE KEY-----
-        MIIEogIBAAKCAQEAl4F5CrP6Wu2kKwH1Z+CNBdo0iteHhVRIXeHdeoqIB1iXvuv4
-        THQdM5PIlot6XmeV1KUKuzw2ewDeb5zcasA4QHPcSVh2+KzbttPQ+RUXCUAr5t+r
-        0r6gBc5Dy1IPjCFsqsPJXFwqe3RzUb...
-        -----END RSA PRIVATE KEY-----
+      -----BEGIN RSA PRIVATE KEY-----
+      MIIEogIBAAKCAQEAl4F5CrP6Wu2kKwH1Z+CNBdo0iteHhVRIXeHdeoqIB1iXvuv4
+      THQdM5PIlot6XmeV1KUKuzw2ewDeb5zcasA4QHPcSVh2+KzbttPQ+RUXCUAr5t+r
+      0r6gBc5Dy1IPjCFsqsPJXFwqe3RzUb...
+      -----END RSA PRIVATE KEY-----
     privateKeyId: "{JWK key id (kid}" # needed if Okta service application has more then a single JWK registered
     requestTimeout: 0 # seconds
     rateLimit:
@@ -832,51 +833,52 @@ okta:
 Each one of the configuration values above can be turned into an environment
 variable name with the `_` (underscore) character:
 
-* `OKTA_CLIENT_CONNECTIONTIMEOUT`
-* `OKTA_CLIENT_TOKEN`
-* and so on
+- `OKTA_CLIENT_CONNECTIONTIMEOUT`
+- `OKTA_CLIENT_TOKEN`
+- and so on
 
 ### Configuration Setter Object
 
 The client is configured with a configuration setter object passed to the `NewClient` function.
 
-| function | description |
-|----------|-------------|
-| WithCache(cache bool) | Use request memory cache |
-| WithCacheManager(cacheManager cache.Cache) | Use custom cache object that implements the `cache.Cache` interface |
-| WithCacheTtl(i int32) | Cache time to live in seconds |
-| WithCacheTti(i int32) | Cache clean up interval in seconds |
-| WithConnectionTimeout(i int64) | HTTP connection timeout in seconds |
-| WithProxyPort(i int32) | HTTP proxy port |
-| WithProxyHost(host string) | HTTP proxy host |
-| WithProxyUsername(username string) | HTTP proxy username |
-| WithProxyPassword(pass string) | HTTP proxy password |
-| WithOrgUrl(url string) | Okta organization URL |
-| WithToken(token string) | Okta API token |
-| WithUserAgentExtra(userAgent string) | Append additional information to the HTTP User-Agent |
-| WithHttpClient(httpClient http.Client) | Custom net/http client |
-| WithHttpClientPtr(httpClient *http.Client) | pointer to custom net/http client |
-| WithTestingDisableHttpsCheck(httpsCheck bool) | Disable net/http SSL checks |
-| WithRequestTimeout(requestTimeout int64) | HTTP request time out in seconds |
-| WithRateLimitMaxRetries(maxRetries int32) | Number of request retries when http request times out |
-| WithRateLimitMaxBackOff(maxBackoff int64) | Max amount of time to wait on request back off |
-| WithAuthorizationMode(authzMode string) | Okta API auth mode, `SSWS` (Okta based), `PrivateKey` (OAuth app based) or `JWT` (OAuth app based) |
-| WithClientId(clientId string) | Okta App client id, used with `PrivateKey` OAuth auth mode |
-| WithClientAssertion(clientAssertion string) | Okta App client assertion, used with `JWT` OAuth auth mode |
-| WithScopes(scopes []string) | Okta API app scopes |
-| WithPrivateKey(privateKey string) | Private key value |
-| WithPrivateKeyId(privateKeyId string) | Private key id (kid) value |
-| WithPrivateKeySigner(signer jose.Signer) | Custom private key signer implementing the `jose.Signer` interface |
+| function                                      | description                                                                                        |
+| --------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| WithCache(cache bool)                         | Use request memory cache                                                                           |
+| WithCacheManager(cacheManager cache.Cache)    | Use custom cache object that implements the `cache.Cache` interface                                |
+| WithCacheTtl(i int32)                         | Cache time to live in seconds                                                                      |
+| WithCacheTti(i int32)                         | Cache clean up interval in seconds                                                                 |
+| WithConnectionTimeout(i int64)                | HTTP connection timeout in seconds                                                                 |
+| WithProxyPort(i int32)                        | HTTP proxy port                                                                                    |
+| WithProxyHost(host string)                    | HTTP proxy host                                                                                    |
+| WithProxyUsername(username string)            | HTTP proxy username                                                                                |
+| WithProxyPassword(pass string)                | HTTP proxy password                                                                                |
+| WithOrgUrl(url string)                        | Okta organization URL                                                                              |
+| WithToken(token string)                       | Okta API token                                                                                     |
+| WithUserAgentExtra(userAgent string)          | Append additional information to the HTTP User-Agent                                               |
+| WithHttpClient(httpClient http.Client)        | Custom net/http client                                                                             |
+| WithHttpClientPtr(httpClient \*http.Client)   | pointer to custom net/http client                                                                  |
+| WithTestingDisableHttpsCheck(httpsCheck bool) | Disable net/http SSL checks                                                                        |
+| WithRequestTimeout(requestTimeout int64)      | HTTP request time out in seconds                                                                   |
+| WithRateLimitMaxRetries(maxRetries int32)     | Number of request retries when http request times out                                              |
+| WithRateLimitMaxBackOff(maxBackoff int64)     | Max amount of time to wait on request back off                                                     |
+| WithAuthorizationMode(authzMode string)       | Okta API auth mode, `SSWS` (Okta based), `PrivateKey` (OAuth app based) or `JWT` (OAuth app based) |
+| WithClientId(clientId string)                 | Okta App client id, used with `PrivateKey` OAuth auth mode                                         |
+| WithClientAssertion(clientAssertion string)   | Okta App client assertion, used with `JWT` OAuth auth mode                                         |
+| WithScopes(scopes []string)                   | Okta API app scopes                                                                                |
+| WithPrivateKey(privateKey string)             | Private key value                                                                                  |
+| WithPrivateKeyId(privateKeyId string)         | Private key id (kid) value                                                                         |
+| WithPrivateKeySigner(signer jose.Signer)      | Custom private key signer implementing the `jose.Signer` interface                                 |
 
 ### Okta Client Base Configuration
 
 The Okta Client's base configuration starts at
 
-| config setting |
-|----------------|
+| config setting            |
+| ------------------------- |
 | WithConnectionTimeout(60) |
-| WithCache(true) |
-| WithCacheTtl(300) |
+| WithCache(true)           |
+| WithCacheTtl(300)         |
+
 | WithCacheTti(300),
 | WithUserAgentExtra("") |
 | WithTestingDisableHttpsCheck(false) |
@@ -951,16 +953,16 @@ Let's say the need is to authenticate a script that will run in a pipeline (or
 any other automated way), and instead of using an API Token (that is bound
 to a user) the goal is to use a service app.
 
-*A public/private key pair is required to do so.*
+_A public/private key pair is required to do so._
 
 These are the requirements:
 
-  - a public/private key par in JWT format
-    ([reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/create-publicprivate-keypair/))
-  - a service app that uses the created key
-    ([reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/create-serviceapp-grantscopes/))
-  - store the private key in a PEM format
-    ([reference](https://www.npmjs.com/package/pem-jwk))
+- a public/private key par in JWT format
+  ([reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/create-publicprivate-keypair/))
+- a service app that uses the created key
+  ([reference](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/create-serviceapp-grantscopes/))
+- store the private key in a PEM format
+  ([reference](https://www.npmjs.com/package/pem-jwk))
 
 To store the PEM formatted key with new lines in a JSON file, the multiple
 lines need to be one-line formatted by joining them with the "\n" character.
@@ -976,8 +978,8 @@ The [mkjwk](https://mkjwk.org/) can be used to create your keys. If generating
 production keys, only use `mkjwk` running locally after you have audited their
 code.
 
-Save the three files, for example named as *public-key*,
-*public-private-keypair* and *public-private-keypair-set*.
+Save the three files, for example named as _public-key_,
+_public-private-keypair_ and _public-private-keypair-set_.
 
 Now create the PEM formatted private key.
 `[pem-jwk](https://www.npmjs.com/package/pem-jwk)` can be utilized to do the
@@ -991,12 +993,12 @@ pem-jwk public-private-keypair > private.pem
 Create the service app following Okta's guide ["Create a service app and grant
 scopes > Create a service
 app"](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/create-serviceapp-grantscopes/#create-a-service-app),
-using *public-private-keypair-set*.
+using _public-private-keypair-set_.
 
 Use the Okta web console to grant the scopes as usual.
 
 To complete our example the PEM formatted private key will be stored in a JSON
-file so your app can read it at run time.  If this is the PEM formatted key:
+file so your app can read it at run time. If this is the PEM formatted key:
 
 ```bash
 ----BEGIN RSA PRIVATE KEY-----
@@ -1036,9 +1038,9 @@ This way, if a JSON file like this one is created:
 
 ```yaml
 {
-    "Oktadomain" : "yourorg.okta.com",
-    "clientId" : "yourclientid",
-    "privateKey" : "----BEGIN RSA PRIVATE KEY-----\nMIIEowIBAAKCAQEAmyX8wdrHK1ycOMeXNg3NOMQvebnfQp+3L5OaaiX16/+tLbwb\nJTZDYh0EXLySMVsduRxC/1PQdPuI6x50TdkoB3C4JMuU968uJqkFp7fXXy5SMAej\nHAyF67cY51dx15ztvakRNJPhhI5WaC20RfR/eow0IH5lGI3czcvTCChGau5qLue3\nHqNDYFY+U3xhOlavSDdtmuxpIFsDycn/OjYjsV4lzyRrOArqtVV/kXHKx04T6A1x\nSc99999999999999999999999999999999999999999999999999EGekHlUAIUpw\nTqzdddddddddddddddddddddddddddddddddddddddddddddddddd5rNLLe5C7p/\nLMta1rzm5TPYwazIbiMkFLAW02ToNAs9LGgDP+VRCZskl6+LuaA5XGabpi09ka7x\nvJ88888888888888888888888888888888888888888888888888JDmIfMSU1tEw\nHmthd7qcwrx29ectcGHyQaX6iyYlQiBKCto+VwPrUq/qDCPYMIyqCTxAGTPLWQAz\nTqzdddddddddddddddddddddddddddddddddddddddddddddddddd5rNLLe5C7p/\nHpDowa9Q+CBO5CEcPW4w9gsCgYA68a+82YtsiyYjdwSzscKIrw4ht3qAZQhGO4Id\nH70kN1CkhHUNFf5UuRHJJ+s3BKlawBUwZaKD5KQ+lpnmrwqfArWu+3HNpX3LIPs5\nvJ88888888888888888888888888888888888888888888888888JDmIfMSU1tEw\ntATmAQKBgCKBkyHmEaS8tEAXcRI26oHOwTZAj6tJp2ODrEcrWtT0bR8wjaEdASdM\nTqzdddddddddddddddddddddddddddddddddddddddddddddddddd5rNLLe5C7p/\n4b+xIYHz8dxmWPsZ7C4WbW9pw3Wn1Du/uvImwt0f4Jp6IPZM9vltXz0Dh7Yv5/SE\nvJ88888888888888888888888888888888888888888888888888JDmIfMSU1tEw\ntATmAQKBgCKBkyHmEaS8tEAXcRI26oHOwTZAj6tJp2ODrEcrWtT0bR8wjaEdASdM\nTqzdddddddddddddddddddddddddddddddddddddddddddddddddd5rNLLe5C7p/\nvJ88888888888888888888888888888888888888888888888888JDmIfMSU1tEw\ntATmAQKBgCKBkyHmEaS8tEAXcRI26oHOwTZAj6tJp2ODrEcrWtT0bR8wjaEdASdM\nDKctGohIQ/ujUD9wzSvlaSZjBcKWw27yN0HiEBn+whKmO76PT7NFAQv/TG8ou3NE\nftlYhgBkwRwRfk7lEvmaTvJugd5g1E/9DAXTajlRYdohGubVz+2G\n-----END RSA PRIVATE KEY-----"
+  "Oktadomain": "yourorg.okta.com",
+  "clientId": "yourclientid",
+  "privateKey": "----BEGIN RSA PRIVATE KEY-----\nMIIEowIBAAKCAQEAmyX8wdrHK1ycOMeXNg3NOMQvebnfQp+3L5OaaiX16/+tLbwb\nJTZDYh0EXLySMVsduRxC/1PQdPuI6x50TdkoB3C4JMuU968uJqkFp7fXXy5SMAej\nHAyF67cY51dx15ztvakRNJPhhI5WaC20RfR/eow0IH5lGI3czcvTCChGau5qLue3\nHqNDYFY+U3xhOlavSDdtmuxpIFsDycn/OjYjsV4lzyRrOArqtVV/kXHKx04T6A1x\nSc99999999999999999999999999999999999999999999999999EGekHlUAIUpw\nTqzdddddddddddddddddddddddddddddddddddddddddddddddddd5rNLLe5C7p/\nLMta1rzm5TPYwazIbiMkFLAW02ToNAs9LGgDP+VRCZskl6+LuaA5XGabpi09ka7x\nvJ88888888888888888888888888888888888888888888888888JDmIfMSU1tEw\nHmthd7qcwrx29ectcGHyQaX6iyYlQiBKCto+VwPrUq/qDCPYMIyqCTxAGTPLWQAz\nTqzdddddddddddddddddddddddddddddddddddddddddddddddddd5rNLLe5C7p/\nHpDowa9Q+CBO5CEcPW4w9gsCgYA68a+82YtsiyYjdwSzscKIrw4ht3qAZQhGO4Id\nH70kN1CkhHUNFf5UuRHJJ+s3BKlawBUwZaKD5KQ+lpnmrwqfArWu+3HNpX3LIPs5\nvJ88888888888888888888888888888888888888888888888888JDmIfMSU1tEw\ntATmAQKBgCKBkyHmEaS8tEAXcRI26oHOwTZAj6tJp2ODrEcrWtT0bR8wjaEdASdM\nTqzdddddddddddddddddddddddddddddddddddddddddddddddddd5rNLLe5C7p/\n4b+xIYHz8dxmWPsZ7C4WbW9pw3Wn1Du/uvImwt0f4Jp6IPZM9vltXz0Dh7Yv5/SE\nvJ88888888888888888888888888888888888888888888888888JDmIfMSU1tEw\ntATmAQKBgCKBkyHmEaS8tEAXcRI26oHOwTZAj6tJp2ODrEcrWtT0bR8wjaEdASdM\nTqzdddddddddddddddddddddddddddddddddddddddddddddddddd5rNLLe5C7p/\nvJ88888888888888888888888888888888888888888888888888JDmIfMSU1tEw\ntATmAQKBgCKBkyHmEaS8tEAXcRI26oHOwTZAj6tJp2ODrEcrWtT0bR8wjaEdASdM\nDKctGohIQ/ujUD9wzSvlaSZjBcKWw27yN0HiEBn+whKmO76PT7NFAQv/TG8ou3NE\nftlYhgBkwRwRfk7lEvmaTvJugd5g1E/9DAXTajlRYdohGubVz+2G\n-----END RSA PRIVATE KEY-----",
 }
 ```
 
@@ -1058,6 +1060,7 @@ ctx, client, err := okta.NewClient(ctx,
 ```
 
 ### OAuth 2.0 With JWT Key
+
 Okta allows you to interact with Okta APIs using scoped OAuth 2.0 access
 tokens. Each access token enables the bearer to perform specific actions on
 specific Okta endpoints, with that ability controlled by which scopes the
@@ -1107,7 +1110,7 @@ Bearer tokens are scoped to an application and not to the greater organization
 as is enabled when the SDK is initialized with an Okta SSWS token or an OAuth
 private key. Therefore a bearer token will not have the permissions to perform
 all of the API calls for organization management through the SDK. The scope of
-the bearer token is determined by the scope configured on the Okta app __and__
+the bearer token is determined by the scope configured on the Okta app **and**
 the scope requested during the authorization. Care should be taken by the
 implementers to configure the Okta app with the necessary scopes for the
 integration.
@@ -1116,27 +1119,27 @@ integration.
 
 1. Create an Okta app based on your requirements. The following table lists the apps types that issue `Bearer` tokens.
 
-    | Sign-in method        | Application Type        | Details                                                                                                                                                                                                                                         |
-    |-----------------------|-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | OIDC - OpenID Connect | Web Application         | [Authorization code flow with client secret](https://developer.okta.com/docs/guides/implement-grant-type/authcode/main/)                                                                                                                        |
-    | OIDC - OpenID Connect | Single-Page Application | [Authorization code flow with PKCE](https://developer.okta.com/docs/guides/implement-grant-type/authcodepkce/main/)                                                                                                                             |
-    | OIDC - OpenID Connect | Native Application      | [Authorization code flow with client secret](https://developer.okta.com/docs/guides/implement-grant-type/authcode/main/) or [Authorization code flow with PKCE](https://developer.okta.com/docs/guides/implement-grant-type/authcodepkce/main/) |
-    | API Services          | N/A                     | Natively supported by SDK using `PrivateKey` Authorization mode                                                                                                                                                                                 |
+   | Sign-in method        | Application Type        | Details                                                                                                                                                                                                                                         |
+   | --------------------- | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+   | OIDC - OpenID Connect | Web Application         | [Authorization code flow with client secret](https://developer.okta.com/docs/guides/implement-grant-type/authcode/main/)                                                                                                                        |
+   | OIDC - OpenID Connect | Single-Page Application | [Authorization code flow with PKCE](https://developer.okta.com/docs/guides/implement-grant-type/authcodepkce/main/)                                                                                                                             |
+   | OIDC - OpenID Connect | Native Application      | [Authorization code flow with client secret](https://developer.okta.com/docs/guides/implement-grant-type/authcode/main/) or [Authorization code flow with PKCE](https://developer.okta.com/docs/guides/implement-grant-type/authcodepkce/main/) |
+   | API Services          | N/A                     | Natively supported by SDK using `PrivateKey` Authorization mode                                                                                                                                                                                 |
 
 2. Make a call to the [Org Authorization Server](https://developer.okta.com/docs/concepts/auth-servers/#org-authorization-server) endpoint to get the authorization code.
 3. Exchange authorization code for a `Bearer` token.
 4. Instantiate and use Okta client with `Bearer` token.
-    ```go
-    ctx, client, err := okta.NewClient(
-        ctx,
-        okta.WithOrgUrl("https://{yourOktaDomain}"),
-        okta.WithAuthorizationMode("Bearer"),
-        okta.WithClientId("{client_id}"),
-        okta.WithToken("{token}"),
-      )
-    ```
-    A bearer token is scoped implicitly, so there is no need to provide
-    `okta.WithScopes()` config setter method when initializing the Okta client.
+   ```go
+   ctx, client, err := okta.NewClient(
+       ctx,
+       okta.WithOrgUrl("https://{yourOktaDomain}"),
+       okta.WithAuthorizationMode("Bearer"),
+       okta.WithClientId("{client_id}"),
+       okta.WithToken("{token}"),
+     )
+   ```
+   A bearer token is scoped implicitly, so there is no need to provide
+   `okta.WithScopes()` config setter method when initializing the Okta client.
 
 ### Extending the Client
 
@@ -1156,7 +1159,6 @@ ctx, client, err := okta.NewClient(
   okta.WithCacheManager(myCache)
 )
 ```
-
 
 ### Extending or Creating New Cache Manager
 
